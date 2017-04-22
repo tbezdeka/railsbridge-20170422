@@ -8,7 +8,12 @@
 <p>
   <strong>Description:</strong>
   <%= @topic.description %>
+  <!-- <%= @topic.image %> -->
+  <br><br>
+  <img src="<%= @topic.image %>">
 </p>
+
+
 
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
 <%= link_to 'Back', topics_path %>

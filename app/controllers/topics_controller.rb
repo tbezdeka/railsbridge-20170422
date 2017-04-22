@@ -67,15 +67,15 @@ class TopicsController < ApplicationController
   def upvote
     @topic = Topic.find(params[:id])
     count = @topic.count + 1
-    @topic.count=count
-    @topic.save
+    @topic.count = count
+    @topic.save!
     redirect_to(topics_path)
   end
   def downvote
     @topic = Topic.find(params[:id])
     count = @topic.count - 1
-      @topic.count=count
-      @topic.save
+      @topic.count = count
+      @topic.save!
     redirect_to(topics_path)
   end
   private
@@ -86,6 +86,6 @@ class TopicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
-      params.require(:topic).permit(:title, :description)
+      params.require(:topic).permit(:title, :description, :image)
     end
 end
