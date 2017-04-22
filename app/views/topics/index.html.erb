@@ -16,11 +16,12 @@
       <tr>
         <td><%= link_to topic.title, topic %></td>
         <!-- <td><%# topic.description %></td> -->
-        <td><%= pluralize(topic.votes.count, "vote") %></td>
+        <!-- <td><%# pluralize(topic.votes.count, "vote") %></td> -->
+        <td><%= pluralize topic.count, "vote" %></td>
         <td><%= button_to '+1', upvote_topic_path(topic), method: :post %></td>
-        <% if topic.votes.length > 0 %>
+        <%# if topic.votes.length > 0 %>
         <td><%= button_to '-1', downvote_topic_path(topic), method: :post %></td>
-        <% end %>
+        <%# end %>
         <!-- <td><%# link_to 'Show', topic %></td> -->
         <!-- <td><%# link_to 'Edit', edit_topic_path(topic) %></td> -->
         <td><%= link_to 'Delete', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -32,3 +33,4 @@
 <br>
 
 <%= link_to 'New Topic', new_topic_path %>
+<a href="/about">About</a>
